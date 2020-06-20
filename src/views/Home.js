@@ -20,7 +20,7 @@ class Home extends React.Component {
             });
         }).catch(error => {
             this.setState({
-                content: error
+                content: error.toString()
             });
         })
 
