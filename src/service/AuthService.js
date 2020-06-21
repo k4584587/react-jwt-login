@@ -15,8 +15,11 @@ class AuthService {
             }, {
                 withCredentials: true,
                 xsrfCookieName: "XSRF-TOKEN",
-                xsrfHeaderName: "X-XSRF-TOKEN"
-                //
+                xsrfHeaderName: "X-XSRF-TOKEN",
+                headers: {
+                    'Access-Control-Allow-Origin' : '*',
+                    'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                }
             }).then(res => {
                 localStorage.setItem("user", JSON.stringify(res.data)); //로그인 정보를 세션에 저장
                 return res.data;
